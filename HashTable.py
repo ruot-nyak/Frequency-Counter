@@ -1,5 +1,6 @@
 from LinkedList import LinkedList
 
+
 class HashTable:
 
   def __init__(self, size):
@@ -13,9 +14,12 @@ class HashTable:
   # This method creates an array (list) of a given size and populates each of its elements with a LinkedList object.
 
   def create_arr(self, size):
-     
-    pass
+    array = []
 
+    for i in range(size):
+      newList = LinkedList()
+      array.append(newList)
+    return array
 
 
 
@@ -25,7 +29,9 @@ class HashTable:
 
   def hash_func(self, key):
     
-    pass
+    hash_key = hash(key.lower())
+    index = hash_key % self.size
+    return index
 
 
   # 3️⃣ TODO: Complete the insert method.
