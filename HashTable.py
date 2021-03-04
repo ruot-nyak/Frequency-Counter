@@ -28,9 +28,9 @@ class HashTable:
   # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored. 
 
   def hash_func(self, key):
-    
-    hash_key = hash(key.lower())
-    index = hash_key % self.size
+    word = key.lower()
+    number_hash = ord(word[0])
+    index = number_hash % self.size
     return index
 
 
@@ -39,8 +39,11 @@ class HashTable:
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
-    pass
-
+    new_data = (key, value)
+    hash_key = self.hash_func(key)
+    list_length = self.arr[hash_key].update(key)
+    if list_length == -1:
+      self.arr[hash_key].append(new_data)
 
 
 
@@ -56,7 +59,8 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    pass
+    for list_length in self.arr:
+      list_length.print_nodes()
 
 
 

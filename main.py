@@ -56,6 +56,8 @@ print(f'''
 frequency_counter = HashTable(8)
 
 
+
+
 # Iteratives over  words_in_file list and adds each word in to the Hash Table one word at a time (using Chaining for collision)
 
 
